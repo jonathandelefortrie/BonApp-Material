@@ -1,3 +1,5 @@
+export Grid from './Grid/Grid';
+export Cell from './Cell/Cell';
 export Radio from './Radio/Radio';
 export Dialog from './Dialog/Dialog';
 export Switch from './Switch/Switch';
