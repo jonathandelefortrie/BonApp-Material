@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "compile": "babel src --out-dir lib --copy-files --ignore *.spec.js"
+    "compile:react": "babel src/react --out-dir build/js --copy-files --ignore *.spec.js",
+    "compile:sass": "node-sass --include-path scss src/sass build/css"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1"
+    "babel-preset-stage-0": "^6.24.1",
+    "node-sass": "^4.7.2"
   }
 }
