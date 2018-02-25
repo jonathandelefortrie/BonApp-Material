@@ -1,0 +1,14 @@
+@mixin center-auto {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+@mixin clear-fix {
+  &::after {
+  	display: table;
+  	clear: both;
+    content: '';
+  }
+}
