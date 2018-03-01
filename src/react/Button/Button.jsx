@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import './Button.scss';
 
 class Button extends Component {
+  Button = null;
+
   componentDidMount() {
-    global.componentHandler.upgradeElement(this.refs.Button);
+    global.componentHandler.upgradeElement(this.Button);
   }
 
   render() {
@@ -22,7 +24,7 @@ class Button extends Component {
     return (
       <button
         {...attrs}
-        ref="Button"
+        ref={elt => { this.Button = elt; }}
         className={`Button mdl-button mdl-js-button mdl-js-ripple-effect
           ${fab + icon + colored + raised + primary + miniFab + accent}
           ${className}`}>

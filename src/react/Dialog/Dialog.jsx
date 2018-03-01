@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Dialog.scss';
 
-import 'dialog-polyfill/dialog-polyfill.css';
-import dialogPolyfill from 'dialog-polyfill/dialog-polyfill.js';
-
 class Dialog extends Component {
   componentWillReceiveProps({ show }) {
     const dialog = this.refs.Dialog;
@@ -12,9 +9,12 @@ class Dialog extends Component {
   }
 
   componentDidMount() {
+    const dialogPolyfillCss = require('dialog-polyfill/dialog-polyfill.css');
+    const dialogPolyfillJs = require('dialog-polyfill/dialog-polyfill.js');
+
     const dialog = this.refs.Dialog;
     document.body.appendChild(dialog);
-    dialogPolyfill.registerDialog(dialog);
+    dialogPolyfillJs.registerDialog(dialog);
   }
 
   componentWillUnmount() {

@@ -13,4 +13,16 @@ class Cell extends Component {
   }
 }
 
+Cell.propTypes = {
+  col: PropTypes.string,
+  mobile: PropTypes.string,
+  tablet: PropTypes.string,
+  desktop: PropTypes.string,
+  className: PropTypes.string
+};
+
+Cell.defaultProps = {
+  className: ''
+};
+
 export default Cell;

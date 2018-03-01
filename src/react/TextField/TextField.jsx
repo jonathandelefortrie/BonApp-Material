@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import './TextField.scss';
 
 class TextField extends Component {
+  TextField = null;
+
   componentDidMount() {
-    global.componentHandler.upgradeElement(this.refs.TextField);
+    global.componentHandler.upgradeElement(this.TextField);
   }
 
   render() {
@@ -12,7 +14,7 @@ class TextField extends Component {
 
     return (
       <div
-        ref="TextField"
+        ref={elt => { this.TextField = elt; }}
         className={`TextField mdl-textfield mdl-js-textfield ${className}`}>
         <input
           {...attrs}

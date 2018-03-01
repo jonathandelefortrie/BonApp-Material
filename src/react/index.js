@@ -1,3 +1,4 @@
+export Chip from './Chip/Chip';
 export Grid from './Grid/Grid';
 export Cell from './Cell/Cell';
 export Radio from './Radio/Radio';
