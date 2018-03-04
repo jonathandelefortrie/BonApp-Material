@@ -3,10 +3,17 @@ import PropTypes from 'prop-types';
 
 class Cell extends Component {
   render() {
-    const { children, className, col, mobile, tablet, desktop } = this.props;
+    let { col, phone, tablet, desktop } = this.props;
+    const { children, className } = this.props;
+
+    col = col ? `mdl-cell--${col}-col` : '';
+    phone = phone ? `mdl-cell--${phone}${phone === 'hide' ? '' : '-col'}-phone` : '';
+    tablet = tablet ? `mdl-cell--${tablet}${tablet === 'hide' ? '' : '-col'}-tablet` : '';
+    desktop = desktop ? `mdl-cell--${desktop}${desktop === 'hide' ? '' : '-col'}-desktop` : '';
 
     return (
-      <div className={`mdl-cell mdl-cell--${col}-col ${className}`}>
+      <div
+        className={`mdl-cell ${col} ${phone} ${tablet} ${desktop} ${className}`}>
         {children}
       </div>
     );
@@ -15,7 +22,7 @@ class Cell extends Component {
 
 Cell.propTypes = {
   col: PropTypes.string,
-  mobile: PropTypes.string,
+  phone: PropTypes.string,
   tablet: PropTypes.string,
   desktop: PropTypes.string,
   className: PropTypes.string

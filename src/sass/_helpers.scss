@@ -200,3 +200,37 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+/**
+ *@Show/Hide device
+ */
+.bp-show-phone {
+  @include show-on-phone;
+}
+.bp-show-tablet {
+  @include show-on-tablet;
+}
+.bp-show-desktop {
+  @include show-on-desktop;
+}
+.bp-show-portrait {
+  @include show-on-portrait;
+}
+.bp-show-landscape {
+  @include show-on-landscape;
+}
+.bp-hide-phone {
+  @include hide-on-phone;
+}
+.bp-hide-tablet {
+  @include hide-on-tablet;
+}
+.bp-hide-desktop {
+  @include hide-on-desktop;
+}
+.bp-hide-portrait {
+  @include hide-on-portrait;
+}
+.bp-hide-landscape {
+  @include hide-on-landscape;
+}

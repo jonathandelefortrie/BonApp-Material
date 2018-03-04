@@ -1,0 +1,64 @@
+$smq-phone-tablet-breakpoint: 480px !default;
+$smq-tablet-desktop-breakpoint: 840px !default;
+$smq-phone-upper-breakpoint: $smq-phone-tablet-breakpoint - 1;
+$smq-tablet-lower-breakpoint: $smq-phone-tablet-breakpoint;
+$smq-tablet-upper-breakpoint: $smq-tablet-desktop-breakpoint - 1;
+$smq-desktop-lower-breakpoint: $smq-tablet-desktop-breakpoint;
+
+@mixin smart-media-queries-hide {
+  display: none !important;
+}
+
+@mixin show-on-phone {
+  @media only screen and (min-width: $smq-tablet-lower-breakpoint) {
+    @include smart-media-queries-hide;
+  }
+}
+@mixin show-on-tablet {
+  @media only screen and (max-width: $smq-phone-upper-breakpoint) {
+    @include smart-media-queries-hide;
+  }
+  @media only screen and (min-width: $smq-desktop-lower-breakpoint) {
+    @include smart-media-queries-hide;
+  }
+}
+@mixin show-on-desktop {
+  @media only screen and (max-width: $smq-tablet-upper-breakpoint) {
+    @include smart-media-queries-hide;
+  }
+}
+@mixin show-on-portrait {
+  @media only screen and (orientation: landscape) {
+    @include smart-media-queries-hide;
+  }
+}
+@mixin show-on-landscape {
+  @media only screen and (orientation: portrait) {
+    @include smart-media-queries-hide;
+  }
+}
+@mixin hide-on-phone {
+  @media only screen and (max-width: $smq-phone-upper-breakpoint) {
+    @include smart-media-queries-hide;
+  }
+}
+@mixin hide-on-tablet {
+  @media only screen and (min-width: $smq-tablet-lower-breakpoint) and (max-width: $smq-tablet-upper-breakpoint) {
+    @include smart-media-queries-hide;
+  }
+}
+@mixin hide-on-desktop {
+  @media only screen and (min-width: $smq-desktop-lower-breakpoint) {
+    @include smart-media-queries-hide;
+  }
+}
+@mixin hide-on-portrait {
+  @media only screen and (orientation: portrait) {
+    @include smart-media-queries-hide;
+  }
+}
+@mixin hide-on-landscape {
+  @media only screen and (orientation: landscape) {
+    @include smart-media-queries-hide;
+  }
+}
