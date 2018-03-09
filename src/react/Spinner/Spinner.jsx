@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import './Spinner.scss';
 
 class Spinner extends Component {
+  Spinner = null;
+
   componentDidMount() {
-    global.componentHandler.upgradeElement(this.refs.Spinner);
+    global.componentHandler.upgradeElement(this.Spinner);
   }
 
   render() {
@@ -12,7 +14,7 @@ class Spinner extends Component {
 
     return (
       <div
-        ref="Spinner"
+        ref={elt => { this.Spinner = elt; }}
         className={`Spinner mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active ${className}`}
       />
     );

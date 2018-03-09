@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "compile:react": "babel src/react --out-dir build/js --copy-files --ignore *.spec.js",
-    "compile:sass": "node-sass --include-path scss src/sass/index.scss build/css/main.css"
+    "compile:js": "babel src --out-dir build/js --copy-files --ignore *.spec.js",
+    "compile:css": "node-sass --include-path scss src/sass/index.scss build/css/main.css"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
