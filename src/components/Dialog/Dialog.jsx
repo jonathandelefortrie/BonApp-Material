@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import './Dialog.scss';
 
 class Dialog extends Component {
+  Dialog = null;
+
   componentWillReceiveProps({ show }) {
-    const dialog = this.refs.Dialog;
+    const dialog = this.Dialog;
     show ? !dialog.open && dialog.showModal() : dialog.open && dialog.close();
   }
 
@@ -12,13 +14,13 @@ class Dialog extends Component {
     const dialogPolyfillCss = require('dialog-polyfill/dialog-polyfill.css');
     const dialogPolyfillJs = require('dialog-polyfill/dialog-polyfill.js');
 
-    const dialog = this.refs.Dialog;
+    const dialog = this.Dialog;
     document.body.appendChild(dialog);
     dialogPolyfillJs.registerDialog(dialog);
   }
 
   componentWillUnmount() {
-    document.body.removeChild(this.refs.Dialog);
+    document.body.removeChild(this.Dialog);
   }
 
   render() {
@@ -26,7 +28,10 @@ class Dialog extends Component {
 
     return (
       <div>
-        <dialog ref="Dialog" className={`mdl-dialog bp-width-${size}`}>
+        <dialog
+          styleName="Dialog"
+          ref={elt => { this.Dialog = elt; }}
+          className={`mdl-dialog bp-width-${size}`}>
           {onClose && (
             <button
               onClick={onClose}

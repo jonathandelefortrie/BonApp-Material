@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Spinner } from '../react';
+import { Spinner } from '../components';
 
 const Loader = (Wrapped, url) => {
   const script = typeof window !== 'undefined'

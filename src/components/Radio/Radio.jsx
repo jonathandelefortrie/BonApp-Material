@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import './Radio.scss';
 
 class Radio extends Component {
+  Radio = null;
+
   componentDidMount() {
-    global.componentHandler.upgradeElement(this.refs.Radio);
+    global.componentHandler.upgradeElement(this.Radio);
   }
 
   render() {
@@ -12,9 +14,10 @@ class Radio extends Component {
 
     return (
       <label
-        ref="Radio"
+        styleName="Radio"
         htmlFor={`radio-${id}`}
-        className={`Radio mdl-radio mdl-js-radio mdl-js-ripple-effect ${className}`}>
+        ref={elt => { this.Radio = elt; }}
+        className={`mdl-radio mdl-js-radio mdl-js-ripple-effect ${className}`}>
         <input
           {...attrs}
           type="radio"

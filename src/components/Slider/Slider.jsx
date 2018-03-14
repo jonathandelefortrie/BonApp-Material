@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import './Slider.scss';
 
 class Slider extends Component {
+  Slider = null;
+
   componentDidMount() {
-    global.componentHandler.upgradeElement(this.refs.Slider);
+    global.componentHandler.upgradeElement(this.Slider);
   }
 
   render() {
@@ -13,10 +15,11 @@ class Slider extends Component {
     return (
       <input
         {...attrs}
-        ref="Slider"
         type="range"
         tabIndex="0"
-        className={`Slider mdl-slider mdl-js-slider ${className}`}
+        styleName="Slider"
+        ref={elt => { this.Slider = elt; }}
+        className={`mdl-slider mdl-js-slider ${className}`}
       />
     );
   }

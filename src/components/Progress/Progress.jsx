@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import './Progress.scss';
 
 class Progress extends Component {
+  Progress = null;
+
   componentDidMount() {
-    global.componentHandler.upgradeElement(this.refs.Progress);
+    global.componentHandler.upgradeElement(this.Progress);
   }
 
   render() {
@@ -12,8 +14,9 @@ class Progress extends Component {
 
     return (
       <div
-        ref="Progress"
-        className={`Progress mdl-progress mdl-js-progress mdl-progress__indeterminate ${className}`}
+        styleName="Progress"
+        ref={elt => { this.Progress = elt; }}
+        className={`mdl-progress mdl-js-progress mdl-progress__indeterminate ${className}`}
       />
     );
   }

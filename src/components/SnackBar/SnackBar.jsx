@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import './SnackBar.scss';
 
 class SnackBar extends Component {
+  SnackBar = null;
+
   componentDidMount() {
-    const { SnackBar } = this.refs;
-    global.componentHandler.upgradeElement(SnackBar);
-    this.showSnackbar = SnackBar.MaterialSnackbar.showSnackbar.bind(SnackBar.MaterialSnackbar);
+    global.componentHandler.upgradeElement(this.SnackBar);
+    this.showSnackbar = this.SnackBar.MaterialSnackbar.showSnackbar.bind(this.SnackBar.MaterialSnackbar);
   }
 
   render() {
@@ -14,8 +15,9 @@ class SnackBar extends Component {
 
     return (
       <div
-        ref="SnackBar"
-        className={`SnackBar mdl-js-snackbar mdl-snackbar ${className}`}>
+        styleName="SnackBar"
+        ref={elt => { this.SnackBar = elt; }}
+        className={`mdl-js-snackbar mdl-snackbar ${className}`}>
         <div className="mdl-snackbar__text" />
         <button className="mdl-snackbar__action" type="button" />
       </div>

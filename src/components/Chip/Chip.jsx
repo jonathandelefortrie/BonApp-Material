@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './Chip.scss';
 
 class Chip extends Component {
   render() {
@@ -9,7 +10,7 @@ class Chip extends Component {
     deletable = deletable ? 'mdl-chip--deletable' : '';
 
     return (
-      <span className={`mdl-chip ${deletable} ${className}`}>
+      <span styleName="Chip" className={`mdl-chip ${deletable} ${className}`}>
         <span className="mdl-chip__text">{children}</span>
         {deletable && (
           <button type="button" className="mdl-chip__action">

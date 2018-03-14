@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import './Switch.scss';
 
 class Switch extends Component {
+  Switch = null;
+
   componentDidMount() {
-    global.componentHandler.upgradeElement(this.refs.Switch);
+    global.componentHandler.upgradeElement(this.Switch);
   }
 
   render() {
@@ -12,9 +14,10 @@ class Switch extends Component {
 
     return (
       <label
-        ref="Switch"
+        styleName="Switch"
         htmlFor={`switch-${id}`}
-        className={`Switch mdl-switch mdl-js-switch mdl-js-ripple-effect ${className}`}>
+        ref={elt => { this.Switch = elt; }}
+        className={`mdl-switch mdl-js-switch mdl-js-ripple-effect ${className}`}>
         <input
           {...attrs}
           type="checkbox"

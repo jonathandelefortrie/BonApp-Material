@@ -14,8 +14,9 @@ class Spinner extends Component {
 
     return (
       <div
+        styleName="Spinner"
         ref={elt => { this.Spinner = elt; }}
-        className={`Spinner mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active ${className}`}
+        className={`mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active ${className}`}
       />
     );
   }

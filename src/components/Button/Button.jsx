@@ -24,8 +24,9 @@ class Button extends Component {
     return (
       <button
         {...attrs}
+        styleName="Button"
         ref={elt => { this.Button = elt; }}
-        className={`Button mdl-button mdl-js-button mdl-js-ripple-effect
+        className={`mdl-button mdl-js-button mdl-js-ripple-effect
           ${fab + icon + colored + raised + primary + miniFab + accent}
           ${className}`}>
         {children}

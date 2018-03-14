@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './TextArea.scss';
+import './TextField.scss';
 
-class TextArea extends Component {
+class TextField extends Component {
+  TextField = null;
+
   componentDidMount() {
-    global.componentHandler.upgradeElement(this.refs.TextArea);
+    global.componentHandler.upgradeElement(this.TextField);
   }
 
   render() {
@@ -12,9 +14,10 @@ class TextArea extends Component {
 
     return (
       <div
-        ref="TextArea"
-        className={`TextArea mdl-textfield mdl-textfield--expandable mdl-js-textfield ${className}`}>
-        <textarea
+        styleName="TextField"
+        ref={elt => { this.TextField = elt; }}
+        className={`mdl-textfield mdl-js-textfield ${className}`}>
+        <input
           {...attrs}
           id={`textfield-${id}`}
           className="mdl-textfield__input"
@@ -30,21 +33,22 @@ class TextArea extends Component {
   }
 }
 
-TextArea.propTypes = {
+TextField.propTypes = {
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   onChange: PropTypes.func,
+  type: PropTypes.string,
   label: PropTypes.string,
   error: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.any,
   className: PropTypes.string,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
 };
 
-TextArea.defaultProps = {
-  value: '',
+TextField.defaultProps = {
+  type: 'text',
   className: ''
 };
 
-export default TextArea;
+export default TextField;

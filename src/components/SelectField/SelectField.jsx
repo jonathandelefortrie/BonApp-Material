@@ -3,15 +3,18 @@ import PropTypes from 'prop-types';
 import './SelectField.scss';
 
 class SelectField extends Component {
+  TextField = null;
+  Menu = null;
+
   componentDidMount() {
-    global.componentHandler.upgradeElement(this.refs.TextField);
-    this.refs.Menu.style.width = `${this.refs.TextField.offsetWidth}px`;
+    global.componentHandler.upgradeElement(this.TextField);
+    this.Menu.style.width = `${this.TextField.offsetWidth}px`;
   }
 
   onClick = item => {
     return e => {
       e.preventDefault();
-      const { MaterialTextfield } = this.refs.TextField;
+      const { MaterialTextfield } = this.TextField;
       MaterialTextfield.change(item);
       MaterialTextfield.onBlur_();
       this.props.onChange({
@@ -28,8 +31,9 @@ class SelectField extends Component {
 
     return (
       <div
-        ref="TextField"
-        className={`SelectField mdl-textfield mdl-js-textfield ${className}`}>
+        styleName="SelectField"
+        ref={elt => { this.TextField = elt; }}
+        className={`mdl-textfield mdl-js-textfield ${className}`}>
         <input
           readOnly
           {...attrs}
@@ -44,8 +48,8 @@ class SelectField extends Component {
           </label>
         )}
         <ul
-          ref="Menu"
           htmlFor={`textfield-${id}`}
+          ref={elt => { this.Menu = elt; }}
           className="mdl-menu mdl-menu--bottom-left mdl-js-menu">
           {options.map((item, index) => (
             <li

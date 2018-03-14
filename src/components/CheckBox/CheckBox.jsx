@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import './CheckBox.scss';
 
 class CheckBox extends Component {
+  CheckBox = null;
+
   componentDidMount() {
-    global.componentHandler.upgradeElement(this.refs.CheckBox);
+    global.componentHandler.upgradeElement(this.CheckBox);
   }
 
   render() {
@@ -12,9 +14,10 @@ class CheckBox extends Component {
 
     return (
       <label
-        ref="CheckBox"
+        stylename="CheckBox"
         htmlFor={`checkbox-${id}`}
-        className={`CheckBox mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect ${className}`}>
+        ref={elt => { this.CheckBox = elt; }}
+        className={`mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect ${className}`}>
         <input
           {...attrs}
           type="checkbox"
