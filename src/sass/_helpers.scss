@@ -1,6 +1,12 @@
 /**
  *@Padding
  */
+.bp-padding-zero {
+  padding: 0;
+}
+.bp-padding-auto {
+  padding: auto;
+}
 .bp-padding {
   padding: 16px;
 }
@@ -16,16 +22,16 @@
 .bp-padding-right {
   padding-right: 16px;
 }
-.bp-padding-zero {
-  padding: 0;
-}
-.bp-padding-auto {
-  padding: auto;
-}
 
 /**
  *@Margin
  */
+.bp-margin-zero {
+  margin: 0;
+}
+.bp-margin-auto {
+  margin: auto;
+}
 .bp-margin {
   margin: 8px;
 }
@@ -40,12 +46,6 @@
 }
 .bp-margin-right {
   margin-right: 8px;
-}
-.bp-margin-zero {
-  margin: 0;
-}
-.bp-margin-auto {
-  margin: auto;
 }
 
 /**
@@ -83,7 +83,7 @@
   width: 25%;
 }
 .bp-width-auto {
-  width: auto !important;
+  width: auto;
 }
 
 /**
@@ -102,7 +102,7 @@
   height: 25%;
 }
 .bp-height-auto {
-  height: auto !important;
+  height: auto;
 }
 
 /**
@@ -142,24 +142,10 @@
 }
 
 /**
- *@Background
- */
-.bp-background {
-  background-color: white;
-}
-
-/**
  *@Shadow
  */
 .bp-shadow {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 1px 1px 0 rgba(0, 0, 0, 0.08);
-}
-
-/**
- *@Clear Fix
- */
-.bp-clear-fix {
-  @include clear-fix;
 }
 
 /**
@@ -170,6 +156,13 @@
   border: none;
   margin-left: auto;
   margin-right: auto;
+}
+
+/**
+ *@Clear Fix
+ */
+.bp-clear-fix {
+  @include clear-fix;
 }
 
 /**
