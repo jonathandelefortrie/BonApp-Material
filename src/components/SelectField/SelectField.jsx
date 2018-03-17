@@ -6,28 +6,42 @@ class SelectField extends Component {
   TextField = null;
   Menu = null;
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      options: props.options
+    };
+  }
+
   componentDidMount() {
+    global.componentHandler.upgradeElement(this.Menu);
     global.componentHandler.upgradeElement(this.TextField);
     this.Menu.style.width = `${this.TextField.offsetWidth}px`;
+  }
+
+  componentWillReceiveProps({ options }) {
+    const { MaterialMenu } = this.Menu;
+    if (this.state.options !== options) {
+      this.setState({ options }, () => MaterialMenu.show());
+    }
   }
 
   onClick = item => {
     return e => {
       e.preventDefault();
       const { MaterialTextfield } = this.TextField;
+      const { MaterialMenu } = this.Menu;
       MaterialTextfield.change(item);
-      MaterialTextfield.onBlur_();
-      this.props.onChange({
-        target: {
-          name: this.props.name,
-          value: item
-        }
-      });
+      MaterialMenu.hide();
+
+      this.props.onSelect(item);
     };
   };
 
   render() {
-    const { id, label, className, options, ...attrs } = this.props;
+    const { options } = this.state;
+    const { id, name, label, value, className, onChange } = this.props;
 
     return (
       <div
@@ -35,10 +49,10 @@ class SelectField extends Component {
         ref={elt => { this.TextField = elt; }}
         className={`mdl-textfield mdl-js-textfield ${className}`}>
         <input
-          readOnly
-          {...attrs}
           type="text"
-          tabIndex="-1"
+          name={name}
+          value={value}
+          onChange={onChange}
           id={`textfield-${id}`}
           className="mdl-textfield__input"
         />
@@ -50,6 +64,7 @@ class SelectField extends Component {
         <ul
           htmlFor={`textfield-${id}`}
           ref={elt => { this.Menu = elt; }}
+          style={{ display: !options.length ? 'none' : '' }}
           className="mdl-menu mdl-menu--bottom-left mdl-js-menu">
           {options.map((item, index) => (
             <li
@@ -67,6 +82,7 @@ class SelectField extends Component {
 
 SelectField.propTypes = {
   onChange: PropTypes.func,
+  onSelect: PropTypes.func,
   label: PropTypes.string,
   value: PropTypes.string,
   className: PropTypes.string,
