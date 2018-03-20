@@ -1,13 +1,5 @@
-@import "./variables";
 @import "./icons";
 @import "./fonts";
 @import "./mixins";
 @import "./queries";
 @import "./helpers";
-
-body {
-	color: $text-color;
-	font-size: $font-size;
-	line-height: $line-height;
-	font-family: $font-family-sans-serif;
-}

@@ -2,7 +2,7 @@
   "name": "@jonathandelefortrie/bonapp-ui-kit",
   "description": "BonApp ui kit",
   "author": "Jonathan Delefortrie <jonathandelefortrie@gmail.com>",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "compile:js": "babel src --out-dir build/js --copy-files --ignore *.spec.js",
     "compile:css": "node-sass --include-path scss src/sass/index.scss build/css/main.css"

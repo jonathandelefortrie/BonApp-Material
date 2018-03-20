@@ -19,11 +19,11 @@ class TextField extends Component {
 
     return (
       <div
-        style={style}
         ref={elt => { this.TextField = elt; }}
         className={`mdl-textfield mdl-js-textfield ${className}`}>
         <input
           {...attrs}
+          style={style}
           id={`textfield-${id}`}
           className="mdl-textfield__input"
         />
