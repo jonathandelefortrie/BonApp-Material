@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './SelectField.scss';
 
 class SelectField extends Component {
   TextField = null;
@@ -45,7 +44,6 @@ class SelectField extends Component {
 
     return (
       <div
-        styleName="SelectField"
         ref={elt => { this.TextField = elt; }}
         className={`mdl-textfield mdl-js-textfield ${className}`}>
         <input

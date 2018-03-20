@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './SnackBar.scss';
 
 class SnackBar extends Component {
   SnackBar = null;
@@ -15,7 +14,6 @@ class SnackBar extends Component {
 
     return (
       <div
-        styleName="SnackBar"
         ref={elt => { this.SnackBar = elt; }}
         className={`mdl-js-snackbar mdl-snackbar ${className}`}>
         <div className="mdl-snackbar__text" />

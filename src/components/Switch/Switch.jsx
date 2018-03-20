@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Switch.scss';
 
 class Switch extends Component {
   Switch = null;
@@ -14,7 +13,6 @@ class Switch extends Component {
 
     return (
       <label
-        styleName="Switch"
         htmlFor={`switch-${id}`}
         ref={elt => { this.Switch = elt; }}
         className={`mdl-switch mdl-js-switch mdl-js-ripple-effect ${className}`}>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './CheckBox.scss';
 
 class CheckBox extends Component {
   CheckBox = null;
@@ -14,7 +13,6 @@ class CheckBox extends Component {
 
     return (
       <label
-        stylename="CheckBox"
         htmlFor={`checkbox-${id}`}
         ref={elt => { this.CheckBox = elt; }}
         className={`mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect ${className}`}>

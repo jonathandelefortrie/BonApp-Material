@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Spinner.scss';
 
 class Spinner extends Component {
   Spinner = null;
@@ -14,7 +13,6 @@ class Spinner extends Component {
 
     return (
       <div
-        styleName="Spinner"
         ref={elt => { this.Spinner = elt; }}
         className={`mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active ${className}`}
       />

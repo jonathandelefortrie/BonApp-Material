@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Progress.scss';
 
 class Progress extends Component {
   Progress = null;
@@ -14,7 +13,6 @@ class Progress extends Component {
 
     return (
       <div
-        styleName="Progress"
         ref={elt => { this.Progress = elt; }}
         className={`mdl-progress mdl-js-progress mdl-progress__indeterminate ${className}`}
       />

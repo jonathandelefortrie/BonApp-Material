@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Radio.scss';
 
 class Radio extends Component {
   Radio = null;
@@ -14,7 +13,6 @@ class Radio extends Component {
 
     return (
       <label
-        styleName="Radio"
         htmlFor={`radio-${id}`}
         ref={elt => { this.Radio = elt; }}
         className={`mdl-radio mdl-js-radio mdl-js-ripple-effect ${className}`}>

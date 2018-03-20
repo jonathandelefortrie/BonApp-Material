@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Dialog.scss';
 
 class Dialog extends Component {
   Dialog = null;
@@ -29,7 +28,6 @@ class Dialog extends Component {
     return (
       <div>
         <dialog
-          styleName="Dialog"
           ref={elt => { this.Dialog = elt; }}
           className={`mdl-dialog bp-width-${size}`}>
           {onClose && (

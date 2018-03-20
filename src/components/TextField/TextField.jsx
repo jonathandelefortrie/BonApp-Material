@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './TextField.scss';
+
+const style = {
+  '::placeholder': {
+    color: 'rgba(0, 0, 0, 0.26)'
+  }
+};
 
 class TextField extends Component {
   TextField = null;
@@ -14,7 +19,7 @@ class TextField extends Component {
 
     return (
       <div
-        styleName="TextField"
+        style={style}
         ref={elt => { this.TextField = elt; }}
         className={`mdl-textfield mdl-js-textfield ${className}`}>
         <input

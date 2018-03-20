@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './TextArea.scss';
 
 class TextArea extends Component {
   TextArea = null;
@@ -14,7 +13,6 @@ class TextArea extends Component {
 
     return (
       <div
-        styleName="TextArea"
         ref={elt => { this.TextArea = elt; }}
         className={`mdl-textfield mdl-textfield--expandable mdl-js-textfield ${className}`}>
         <textarea

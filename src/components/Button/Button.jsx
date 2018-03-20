@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Button.scss';
 
 class Button extends Component {
   Button = null;
@@ -24,7 +23,6 @@ class Button extends Component {
     return (
       <button
         {...attrs}
-        styleName="Button"
         ref={elt => { this.Button = elt; }}
         className={`mdl-button mdl-js-button mdl-js-ripple-effect
           ${fab + icon + colored + raised + primary + miniFab + accent}
