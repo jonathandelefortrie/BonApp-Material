@@ -29,15 +29,19 @@ class Dialog extends Component {
       <div>
         <dialog
           ref={elt => { this.Dialog = elt; }}
-          className={`mdl-dialog bp-width-${size}`}>
+          style={{ padding: '16px' }}
+          className={`mdl-dialog`}>
           {onClose && (
             <button
               onClick={onClose}
-              className="mdl-button mdl-js-button mdl-button--icon bp-float-right">
+              style={{ float: 'right' }}
+              className="mdl-button mdl-js-button mdl-button--icon">
               <i className="material-icons">close</i>
             </button>
           )}
-          <div className={`mdl-dialog__content bp-padding-zero ${className}`}>
+          <div
+            style={{ padding: '16px' }}
+            className={`mdl-dialog__content ${className}`}>
             {children}
           </div>
         </dialog>
@@ -47,11 +51,11 @@ class Dialog extends Component {
 }
 
 Dialog.propTypes = {
-  size: PropTypes.oneOf(['third', 'half', 'quarter'])
+  className: PropTypes.string
 };
 
 Dialog.defaultProps = {
-  size: 'third'
+  className: ''
 };
 
 export default Dialog;
