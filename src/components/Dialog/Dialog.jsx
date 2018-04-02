@@ -28,13 +28,13 @@ class Dialog extends Component {
     return (
       <div>
         <dialog
+          style={{ padding: '0', width: 'fit-content' }}
           ref={elt => { this.Dialog = elt; }}
-          style={{ padding: '16px' }}
           className={`mdl-dialog`}>
           {onClose && (
             <button
               onClick={onClose}
-              style={{ float: 'right' }}
+              style={{ padding: '8px', float: 'right' }}
               className="mdl-button mdl-js-button mdl-button--icon">
               <i className="material-icons">close</i>
             </button>

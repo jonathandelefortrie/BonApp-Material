@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const style = {
-  '::placeholder': {
-    color: 'rgba(0, 0, 0, 0.26)'
-  }
-};
-
 class TextField extends Component {
   TextField = null;
 
@@ -23,7 +17,6 @@ class TextField extends Component {
         className={`mdl-textfield mdl-js-textfield ${className}`}>
         <input
           {...attrs}
-          style={style}
           id={`textfield-${id}`}
           className="mdl-textfield__input"
         />
