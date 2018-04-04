@@ -1,2 +1,4 @@
-export components from './components';
-export utils from './utils';
+import 'material-design-lite/material';
+
+import components from './components';
+import utils from './utils';
