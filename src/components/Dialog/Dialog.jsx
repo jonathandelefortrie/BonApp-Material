@@ -34,7 +34,7 @@ class Dialog extends Component {
           {onClose && (
             <button
               onClick={onClose}
-              style={{ padding: '8px', float: 'right' }}
+              style={{ margin: '8px', float: 'right' }}
               className="mdl-button mdl-js-button mdl-button--icon">
               <i className="material-icons">close</i>
             </button>
