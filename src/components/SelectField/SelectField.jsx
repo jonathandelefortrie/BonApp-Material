@@ -9,6 +9,7 @@ class SelectField extends Component {
     super(props);
 
     this.state = {
+      focused: false,
       options: props.options
     };
   }
@@ -38,22 +39,31 @@ class SelectField extends Component {
     };
   };
 
+  onBlur = () => {
+    this.setState({ focused: false });
+  };
+
+  onFocus = () => {
+    this.setState({ focused: true });
+  };
+
   render() {
-    const { options } = this.state;
-    const { id, name, label, value, className, onChange } = this.props;
-    const focused = (typeof document !== 'undefined' && document.activeElement === this.TextField);
+    const { focused, options } = this.state;
+    const { id, name, label, value, className, onChange, readOnly } = this.props;
 
     return (
       <div
         ref={elt => { this.TextField = elt; }}
-        style={{ maxHeight: '248px', overflow: 'scroll' }}
         className={`mdl-textfield mdl-js-textfield ${className}`}>
         <input
           type="text"
           name={name}
           value={value}
           autoComplete="off"
+          readOnly={readOnly}
           onChange={onChange}
+          onBlur={this.onBlur}
+          onFocus={this.onFocus}
           id={`textfield-${id}`}
           className="mdl-textfield__input"
         />
@@ -65,7 +75,12 @@ class SelectField extends Component {
         <ul
           htmlFor={`textfield-${id}`}
           ref={elt => { this.Menu = elt; }}
-          style={{ display: (focused && options.length) ? '' : 'none' }}
+          style={{
+            padding: '0',
+            maxHeight: '240px',
+            overflowY: 'scroll',
+            display: focused && options.length ? '' : 'none'
+          }}
           className="mdl-menu mdl-menu--bottom-left mdl-js-menu">
           {options.map((item, index) => (
             <li
@@ -86,6 +101,7 @@ SelectField.propTypes = {
   onSelect: PropTypes.func,
   label: PropTypes.string,
   value: PropTypes.string,
+  readOnly: PropTypes.bool,
   className: PropTypes.string,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
@@ -93,7 +109,8 @@ SelectField.propTypes = {
 };
 
 SelectField.defaultProps = {
-  className: ''
+  className: '',
+  readOnly: false
 };
 
 export default SelectField;
