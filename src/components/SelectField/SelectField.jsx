@@ -41,15 +41,18 @@ class SelectField extends Component {
   render() {
     const { options } = this.state;
     const { id, name, label, value, className, onChange } = this.props;
+    const focused = (typeof document !== 'undefined' && document.activeElement === this.TextField);
 
     return (
       <div
         ref={elt => { this.TextField = elt; }}
+        style={{ maxHeight: '248px', overflow: 'scroll' }}
         className={`mdl-textfield mdl-js-textfield ${className}`}>
         <input
           type="text"
           name={name}
           value={value}
+          autoComplete="off"
           onChange={onChange}
           id={`textfield-${id}`}
           className="mdl-textfield__input"
@@ -62,7 +65,7 @@ class SelectField extends Component {
         <ul
           htmlFor={`textfield-${id}`}
           ref={elt => { this.Menu = elt; }}
-          style={{ display: !options.length ? 'none' : '' }}
+          style={{ display: (focused && options.length) ? '' : 'none' }}
           className="mdl-menu mdl-menu--bottom-left mdl-js-menu">
           {options.map((item, index) => (
             <li
