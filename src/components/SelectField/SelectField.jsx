@@ -40,11 +40,11 @@ class SelectField extends Component {
   };
 
   onBlur = () => {
-    this.setState({ focused: false });
+    setTimeout(() => this.setState({ focused: false }), 1);
   };
 
   onFocus = () => {
-    this.setState({ focused: true });
+    setTimeout(() => this.setState({ focused: true }), 1);
   };
 
   render() {
