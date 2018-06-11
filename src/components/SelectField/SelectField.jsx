@@ -30,12 +30,14 @@ class SelectField extends Component {
   onClick = item => {
     return e => {
       e.preventDefault();
-      const { MaterialTextfield } = this.TextField;
-      const { MaterialMenu } = this.Menu;
-      MaterialTextfield.change(item);
-      MaterialMenu.hide();
+      this.setState({ focused: false }, () => {
+        const { MaterialTextfield } = this.TextField;
+        const { MaterialMenu } = this.Menu;
+        MaterialTextfield.change(item);
+        MaterialMenu.hide();
 
-      this.props.onSelect(item);
+        this.props.onSelect(item);
+      });
     };
   };
 
