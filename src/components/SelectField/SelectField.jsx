@@ -39,12 +39,14 @@ class SelectField extends Component {
     };
   };
 
-  onBlur = () => {
-    setTimeout(() => this.setState({ focused: false }), 1);
+  onBlur = e => {
+    if(!this.Menu.contains(e.relatedTarget)) {
+      this.setState({ focused: false });
+    }
   };
 
   onFocus = () => {
-    setTimeout(() => this.setState({ focused: true }), 1);
+    this.setState({ focused: true });
   };
 
   render() {
