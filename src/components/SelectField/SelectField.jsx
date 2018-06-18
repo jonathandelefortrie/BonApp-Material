@@ -9,7 +9,6 @@ class SelectField extends Component {
     super(props);
 
     this.state = {
-      focused: false,
       options: props.options
     };
   }
@@ -27,32 +26,20 @@ class SelectField extends Component {
     }
   }
 
-  onClick = item => {
+  handleClick = item => {
     return e => {
       e.preventDefault();
-      this.setState({ focused: false }, () => {
-        const { MaterialTextfield } = this.TextField;
-        const { MaterialMenu } = this.Menu;
-        MaterialTextfield.change(item);
-        MaterialMenu.hide();
+      const { MaterialTextfield } = this.TextField;
+      const { MaterialMenu } = this.Menu;
+      MaterialTextfield.change(item);
+      MaterialMenu.hide();
 
-        this.props.onSelect(item);
-      });
+      this.props.onSelect(item);
     };
   };
 
-  onBlur = e => {
-    if(!this.Menu.contains(e.relatedTarget)) {
-      this.setState({ focused: false });
-    }
-  };
-
-  onFocus = () => {
-    this.setState({ focused: true });
-  };
-
   render() {
-    const { focused, options } = this.state;
+    const { options } = this.state;
     const { id, name, label, value, className, onChange, readOnly } = this.props;
 
     return (
@@ -66,8 +53,6 @@ class SelectField extends Component {
           autoComplete="off"
           readOnly={readOnly}
           onChange={onChange}
-          onBlur={this.onBlur}
-          onFocus={this.onFocus}
           id={`textfield-${id}`}
           className="mdl-textfield__input"
         />
@@ -83,14 +68,14 @@ class SelectField extends Component {
             padding: '0',
             maxHeight: '240px',
             overflowY: 'scroll',
-            display: focused && options.length ? '' : 'none'
+            display: options.length ? '' : 'none'
           }}
           className="mdl-menu mdl-menu--bottom-left mdl-js-menu">
           {options.map((item, index) => (
             <li
               key={index}
               className="mdl-menu__item"
-              onClick={this.onClick(item)}>
+              onClick={this.handleClick(item)}>
               {item}
             </li>
           ))}
