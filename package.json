@@ -2,7 +2,7 @@
   "name": "@jonathandelefortrie/bonapp-material",
   "description": "BonApp ui kit",
   "author": "Jonathan Delefortrie <jonathandelefortrie@gmail.com>",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "scripts": {
     "compile": "rm -rf ./build && yarn run compile:js && yarn run compile:css",
     "compile:js": "babel src --out-dir build --copy-files --ignore *.spec.js,*.scss",
@@ -10,6 +10,13 @@
     "storybook": "start-storybook -p 7000 -c .storybook"
   },
   "dependencies": {
+    "dialog-polyfill": "^0.4.9",
+    "material-design-lite": "^1.3.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
     "@storybook/addon-actions": "^3.4.8",
     "@storybook/addon-centered": "^3.4.8",
     "@storybook/addon-knobs": "^3.4.8",
@@ -20,12 +27,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.11",
-    "dialog-polyfill": "^0.4.9",
-    "material-design-lite": "^1.3.0",
     "node-sass": "^4.7.2",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0"
   },
