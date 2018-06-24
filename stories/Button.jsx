@@ -9,16 +9,16 @@ storiesOf('Button', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .add('default', () => (
-    <Button raised={boolean('raised', false)}>Click</Button>
+    <Button raised={boolean('raised', false)}>Button</Button>
   ))
   .add('primary', () => (
     <Button primary raised={boolean('raised', false)}>
-      Click
+      Button
     </Button>
   ))
   .add('accent', () => (
     <Button accent raised={boolean('raised', false)}>
-      Click
+      Button
     </Button>
   ))
   .add('fab', () => (

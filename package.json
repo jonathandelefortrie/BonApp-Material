@@ -6,7 +6,7 @@
   "scripts": {
     "compile": "rm -rf ./build && yarn run compile:js && yarn run compile:css",
     "compile:js": "babel src --out-dir build --copy-files --ignore *.spec.js,*.scss",
-    "compile:css": "node-sass --include-path scss src/index.scss build/index.css --output-style compressed",
+    "compile:css": "node-sass --functions=converter --include-path scss src/index.scss build/index.css --output-style compressed",
     "storybook": "start-storybook -p 7000 -c .storybook"
   },
   "dependencies": {
@@ -26,6 +26,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "resolve-url-loader": "^2.3.0",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0"
   },
