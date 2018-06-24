@@ -13,7 +13,7 @@ storiesOf('CheckBox', module)
       label="CheckBox"
       id="checkbox"
       name="checkbox"
-      checked={true}
+      checked={boolean('checked', false)}
       onChange={action('checkbox-toggle')}
     />
   ));
