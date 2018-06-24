@@ -6,19 +6,28 @@
   "scripts": {
     "compile": "rm -rf ./build && yarn run compile:js && yarn run compile:css",
     "compile:js": "babel src --out-dir build --copy-files --ignore *.spec.js,*.scss",
-    "compile:css": "node-sass --include-path scss src/index.scss build/index.css --output-style compressed"
+    "compile:css": "node-sass --include-path scss src/index.scss build/index.css --output-style compressed",
+    "storybook": "start-storybook -p 7000 -c .storybook"
   },
   "dependencies": {
+    "@storybook/addon-actions": "^3.4.8",
+    "@storybook/addon-centered": "^3.4.8",
+    "@storybook/addon-knobs": "^3.4.8",
+    "@storybook/react": "^3.4.8",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.11",
     "dialog-polyfill": "^0.4.9",
     "material-design-lite": "^1.3.0",
     "node-sass": "^4.7.2",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0"
   },
   "main": "build"
 }
