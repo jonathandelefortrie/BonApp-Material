@@ -8,6 +8,13 @@ class Radio extends Component {
     global.componentHandler.upgradeElement(this.Radio);
   }
 
+  componentWillReceiveProps({ checked }) {
+    if (typeof checked === 'boolean') {
+      const { MaterialRadio } = this.Radio;
+      checked ? MaterialRadio.check() : MaterialRadio.uncheck();
+    }
+  }
+
   render() {
     const { id, label, className, ...attrs } = this.props;
 

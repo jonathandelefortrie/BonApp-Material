@@ -8,6 +8,13 @@ class Switch extends Component {
     global.componentHandler.upgradeElement(this.Switch);
   }
 
+  componentWillReceiveProps({ checked }) {
+    if (typeof checked === 'boolean') {
+      const { MaterialSwitch } = this.Switch;
+      checked ? MaterialSwitch.on() : MaterialSwitch.off();
+    }
+  }
+
   render() {
     const { id, label, className, ...attrs } = this.props;
 

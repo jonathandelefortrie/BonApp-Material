@@ -9,12 +9,12 @@ class TextField extends Component {
   }
 
   render() {
-    const { id, label, error, className, ...attrs } = this.props;
+    const { id, label, error, className, floating, ...attrs } = this.props;
 
     return (
       <div
         ref={elt => { this.TextField = elt; }}
-        className={`mdl-textfield mdl-js-textfield ${className}`}>
+        className={`mdl-textfield mdl-js-textfield ${floating ? 'mdl-textfield--floating-label' : ''} ${className}`}>
         <input
           {...attrs}
           id={`textfield-${id}`}
@@ -39,6 +39,7 @@ TextField.propTypes = {
   label: PropTypes.string,
   error: PropTypes.string,
   value: PropTypes.any,
+  floating: PropTypes.bool,
   className: PropTypes.string,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
@@ -46,6 +47,7 @@ TextField.propTypes = {
 
 TextField.defaultProps = {
   type: 'text',
+  floating: false,
   className: ''
 };
 

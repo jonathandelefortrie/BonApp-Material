@@ -3,16 +3,16 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
-import CheckBox from '../src/components/CheckBox/CheckBox';
+import Switch from '../src/components/Switch/Switch';
 
-storiesOf('CheckBox', module)
+storiesOf('Switch', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .add('default', () => (
-    <CheckBox
-      id="checkbox"
-      name="checkbox"
-      label={text('label', 'CheckBox')}
+    <Switch
+      id="switch"
+      name="switch"
+      label={text('label', 'Switch')}
       checked={boolean('checked', false)}
     />
   ));

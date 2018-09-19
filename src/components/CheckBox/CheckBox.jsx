@@ -8,6 +8,13 @@ class CheckBox extends Component {
     global.componentHandler.upgradeElement(this.CheckBox);
   }
 
+  componentWillReceiveProps({ checked }) {
+    if (typeof checked === 'boolean') {
+      const { MaterialCheckbox } = this.CheckBox;
+      checked ? MaterialCheckbox.check() : MaterialCheckbox.uncheck();
+    }
+  }
+
   render() {
     const { id, label, className, ...attrs } = this.props;
 
