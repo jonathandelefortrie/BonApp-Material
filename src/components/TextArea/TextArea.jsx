@@ -9,12 +9,12 @@ class TextArea extends Component {
   }
 
   render() {
-    const { id, label, error, className, ...attrs } = this.props;
+    const { id, label, error, className, floating, ...attrs } = this.props;
 
     return (
       <div
         ref={elt => { this.TextArea = elt; }}
-        className={`mdl-textfield mdl-textfield--expandable mdl-js-textfield ${className}`}>
+        className={`mdl-textfield mdl-textfield--expandable mdl-js-textfield ${floating ? 'mdl-textfield--floating-label' : ''} ${className}`}>
         <textarea
           {...attrs}
           id={`textfield-${id}`}
@@ -39,13 +39,14 @@ TextArea.propTypes = {
   error: PropTypes.string,
   value: PropTypes.string,
   className: PropTypes.string,
+  floating: PropTypes.bool,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
 };
 
 TextArea.defaultProps = {
-  value: '',
-  className: ''
+  className: '',
+  floating: false
 };
 
 export default TextArea;

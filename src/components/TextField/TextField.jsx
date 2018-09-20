@@ -39,16 +39,16 @@ TextField.propTypes = {
   label: PropTypes.string,
   error: PropTypes.string,
   value: PropTypes.any,
-  floating: PropTypes.bool,
   className: PropTypes.string,
+  floating: PropTypes.bool,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
 };
 
 TextField.defaultProps = {
   type: 'text',
-  floating: false,
-  className: ''
+  className: '',
+  floating: false
 };
 
 export default TextField;

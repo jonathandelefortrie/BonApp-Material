@@ -40,12 +40,12 @@ class SelectField extends Component {
 
   render() {
     const { options } = this.state;
-    const { id, name, label, value, className, onChange, readOnly } = this.props;
+    const { id, name, label, value, className, floating, onChange, readOnly } = this.props;
 
     return (
       <div
         ref={elt => { this.TextField = elt; }}
-        className={`mdl-textfield mdl-js-textfield ${className}`}>
+        className={`mdl-textfield mdl-js-textfield ${floating ? 'mdl-textfield--floating-label' : ''} ${className}`}>
         <input
           type="text"
           name={name}
@@ -90,8 +90,9 @@ SelectField.propTypes = {
   onSelect: PropTypes.func,
   label: PropTypes.string,
   value: PropTypes.string,
-  readOnly: PropTypes.bool,
   className: PropTypes.string,
+  floating: PropTypes.bool,
+  readOnly: PropTypes.bool,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired
@@ -99,6 +100,7 @@ SelectField.propTypes = {
 
 SelectField.defaultProps = {
   className: '',
+  floating: false,
   readOnly: false
 };
 
