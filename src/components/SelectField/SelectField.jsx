@@ -16,6 +16,9 @@ class SelectField extends Component {
   componentDidMount() {
     global.componentHandler.upgradeElement(this.Menu);
     global.componentHandler.upgradeElement(this.TextField);
+  }
+
+  componentWillUpdate() {
     this.Menu.style.width = `${this.TextField.offsetWidth}px`;
   }
 
